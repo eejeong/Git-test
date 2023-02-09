@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자맞추기</title>
+  </head>
+  <body>
+    <script>
+      var low = 0; //범위의 최소값
+      var high = 0; //범위의 최대값
+      var card = 0; //정답
+      //게임의 정답을맞추기 위해서 무한루프를 돌고 있다
+      var count = 0; //사용자의 시도 횟수
+      low = 0;
+      high = 99;
+      card = Math.floor(Math.random() * 100); //0~99까지의 랜덤숫자
+      alert("수를 결정하였습니다. 맞춰보세요.");
+      //
+      while (true) {
+        count++;
+        alert("숫자는 " + low + "-" + high + " 사이의 숫자입니다."); //값의 범위 출력
+        var number = Number(window.prompt("숫자를 입력하세요."));
+        if (number < card) {
+          alert(`${count}번째 시도입니다. 정답은 ${number}보다 큰 숫자입니다.`);
+          low = number;
+        } else if (number > card) {
+          alert(
+            `${count}번째 시도입니다. 정답은 ${number}보다 작은 숫자입니다.`
+          );
+          high = number;
+        } else {
+          alert(`${count}번 만에 맞추셨습니다. 짝짝짝`);
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>

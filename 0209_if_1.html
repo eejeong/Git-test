@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문-1</title>
+    <!-- </head>
+  <body>
+    <script>
+      //사용자로부터 값을 입력
+      var userID = window.prompt("사용자 아이디를 입력하세요.");
+      //값 비교하기 위한 코드 : 대소문자 구분
+      if (userID == "KB") {
+        alert(userID + "님 환영합니다.");
+      } else {
+        alert("아이디가 틀렸습니다.확인해 주세요.");
+      }
+    </script>
+  </body>
+</html> -->
+  </head>
+  <body>
+    <script>
+      //사용자로부터 입력받는 부분
+      var userID = window.prompt("아이디를 입력하세요.");
+      var userPW = window.prompt("패스워드를 입력하세요.");
+      //값 비교
+      if (userID == "KB" && userPW == "0209") {
+        //연산자 우선순위 == 는 동등, && AND
+        alert(userID + "님이 로그인 하셨습니다.");
+      } else if (userID == "KB") {
+        alert("패스워드가 잘못 입력되었습니다.");
+      } else {
+        alert("아이디가 잘못 입력되었습니다.");
+      }
+    </script>
+  </body>
+</html>
