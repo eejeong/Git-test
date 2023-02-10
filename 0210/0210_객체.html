@@ -1,0 +1,167 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array 객체로 배열 만들기</title>
+  </head>
+  <body>
+    <h3>Array 객체로 배열 만들기</h3>
+    <hr />
+    <script>
+      let degrees = new Array(); // let 함수로 이름 지정 및 빈 배열 생성
+      degrees[0] = 15.5;
+      degrees[1] = 15.7;
+      degrees[2] = 16.4;
+      degrees[3] = 17.7;
+      degrees[4] = 19.8;
+      degrees[5] = 22.7;
+      let sum = 0; // 합을 구해야 평균 구할 수 있음
+      for (let i = 0; i < degrees.length; i++) sum += degrees[i]; //평균 구하기
+      document.write("평균 온도는 " + sum / degrees.length + "<br>");
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>객체 생성 및 활용</title>
+  </head>
+  <body>
+    <h3>객체 생성 및 활용</h3>
+    <hr />
+    <script>
+      // Date 객체 생성
+      let today = new Date();
+      // Date 객체의 toLocaleString() 메소드 호출
+      document.write("현재 시간 : " + today.toLocaleString() + "<br>");
+      // String 객체 생성
+      let str = new String("오늘은 금요일");
+      document.write("str의 내용 : " + str + "<br>");
+      document.write("str의 길이 : " + str.length + "<br>");
+      // write는 document 라는 객체의 메서드
+    </script>
+  </body>
+</html> -->
+<!-- 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>String 객체의 메소드 활용</title>
+  </head>
+  <body>
+    <h3>String 객체의 메소드 활용</h3>
+    <hr />
+    <script>
+      let a = new String("Boys and Girls");
+      let b = "!!";
+      document.write("a : " + a + "<br>");
+      document.write("b : " + b + "<br><hr>");
+      document.write(a.charAt(0) + "<br>"); //문자열 내에서 특정 위치
+      document.write(a.concat(b, "입니다") + "<br>"); //문자열 합치기
+      document.write(a.indexOf("s") + "<br>"); //특정 문자열. 개수 "s"라는 문자열 찾기
+      document.write(a.indexOf("girls") + "<br>"); //특정 문자열 순서
+      document.write(a.slice(5, 8) + "<br>"); //인덱스 5에서 8 이전의 문자열 "and"리턴
+      document.write(a.substr(5, 3) + "<br>"); //인덱스 5부터 3개 리턴
+      document.write(a.toUpperCase() + "<br>"); //대문자 변경 toLower
+      document.write(a.replace("and", "or") + "<br>"); //문자열 변경
+      document.write("   kitae   ".trim() + "<br><hr>"); //앞 뒤 공백 제거
+      let sub = a.split(" ");
+      document.write("a를 빈칸으로 분리<br>");
+      for (let i = 0; i < sub.length; i++)
+        document.write("sub" + i + "=" + sub[i] + "<br>");
+      document.write("<hr>String 메소드를 실행 후 a와 b 변함 없음<br>");
+      document.write("a : " + a + "<br>");
+      document.write("b : " + b + "<br>");
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>document.getElementsByClassName()</title>
+<script>
+function viewPlace() {
+	let tagArray = document.getElementsByClassName("place");
+ 	for(let i=0; i<tagArray.length; i++) {
+		let tag = tagArray[i];
+		tag.style.color = "orchid";
+		tag.style.fontSize = "20px";
+		tag.style.textDecoration = "underline";
+ 	}
+}
+function viewFood() {
+	let tagArray = document.getElementsByClassName("food");
+ 	for(let i=0; i<tagArray.length; i++) {
+		let tag = tagArray[i];
+		tag.style.color = "darkcyan";
+ 	}
+}
+</script>
+</head>
+<body>
+<h3>가고 싶은 곳 먹고 싶은 것</h3><br>
+	<button onclick="viewPlace()">가고 싶은 곳</button>
+	<button onclick="viewFood()">먹고 싶은 것</button>
+</h3>
+<hr>
+<p><span class="place">제주도</span>에 가서 <span class="food">흑돼지</span>를 먹고 싶고요.
+<span class="place">독도</span>에 가서 <span class="food">독도 새우</span>도 먹고 싶어요. 
+제일 가고 싶은 곳 <span class="place">부산 자갈치 시장</span>에서 <span class="food">
+꼼장어 구이</span>도 먹고 싶어요</p>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML 태그에 리스너 작성</title>
+  </head>
+  <body>
+    <h3>HTML 태그에 리스너 작성</h3>
+    <hr />
+    <p
+      onmouseover="this.style.backgroundColor='orchid'"
+      onmouseout="this.style.backgroundColor='white'"
+    >
+      마우스 올리면 orchid 색으로 변경
+    </p>
+  </body>
+</html>
+​
+<!-- 
+이벤트가 발생했을 때 처리하는 담당함수    
+    
+이벤트가 HTML태그에 발생한다.
+객체에 이벤트가 발생한다.
+DOM객체에 이벤트가 발생한다. -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>방문 시간에 따라 변하는 배경색</title>
+  </head>
+  <body>
+    <h3>페이지 방문 초시간이 짝수이면 violet, 홀수이면 lightskyblue 배경</h3>
+    <hr />
+    <script>
+      let current = new Date(); // 현재 시간 값을 가진 Date 객체 생성
+      if (current.getSeconds() % 2 == 0)
+        document.body.style.backgroundColor = "violet"; //<body>요소 반환
+      else document.body.style.backgroundColor = "lightskyblue";
+      document.write("현재 시간 : ");
+      document.write(current.getHours(), "시,");
+      document.write(current.getMinutes(), "분,");
+      document.write(current.getSeconds(), "초<br>");
+    </script>
+  </body>
+</html>
