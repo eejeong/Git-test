@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>attribute와 classList</title>
+    <style>
+      .red-color {
+        color: red;
+      }
+      .fs40 {
+        font-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://www.naver.com" class="fs40">NAVER</a>
+
+    <script>
+      const aE1 = document.querySelector("a"); //노드 선택
+      aE1.classList.add("red-color"); //class 속성 추가
+      aE1.setAttribute("class", "red-color"); //class 속성 초기화
+    </script>
+  </body>
+</html>

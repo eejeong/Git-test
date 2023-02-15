@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkbox</title>
+  </head>
+  <body>
+    <form>
+      <label><input type="checkbox" value="blue" />파랑</label>
+      <label><input type="checkbox" value="red" />빨강</label>
+      <label><input type="checkbox" value="green" />초록</label>
+      <label><input type="checkbox" value="purple" />보라</label>
+    </form>
+    <script>
+      const checkboxEls = document.querySelectorAll("[type = 'checkbox']");
+      for (let i = 0; i < checkboxEls.length; i++) {
+        checkboxEls[i].checked = true;
+      }
+    </script>
+  </body>
+</html>
