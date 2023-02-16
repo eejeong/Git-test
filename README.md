@@ -158,17 +158,9 @@
 
 - textContent, innerText : 텍스트로 인식
 - innerHTML : 태그에 걸린 모든 속성 인식
-- 아래 예제에서 <strong> 값은 innerHTML에만 적용됨
+- 아래 예제에서 strong 값은 innerHTML에만 적용됨
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DOM Modify Set</title>
-  </head>
   <body>
     <p id="textContent"></p>
     <p id="innerText"></p>
@@ -185,18 +177,10 @@
       ).innerHTML = `<strong>innerHTML</strong> 속성`;
     </script>
   </body>
-</html>
+</html>``
 ```
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>콘텐츠 조작</title>
-  </head>
   <body>
     <p id="title">Hello, <span style="display: none">Javascript!</span></p>
 
@@ -216,14 +200,6 @@
 - Node 추가
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>create Node</title>
-  </head>
   <body>
     <script>
       //요소 노드 생성
@@ -248,14 +224,6 @@
   - querySelectorAll : 모든 대상 선택
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>remove Node</title>
-  </head>
   <body>
     <p>text 1</p>
     <a href="https://www.naver.com">NAVER</a>
@@ -271,14 +239,6 @@
 - 자식 Node 삭제
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>remove Node</title>
-  </head>
   <body>
     <p>text 1</p>
     <a href="https://www.naver.com">NAVER</a>
@@ -296,14 +256,6 @@
 - checkbox 예제
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>checkbox</title>
-  </head>
   <body>
     <form>
       <label><input type="checkbox" value="blue" />파랑</label>
@@ -324,14 +276,6 @@
 - checklist 특정 값만 체크
 
 ```
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>radio</title>
-  </head>
   <body>
     <form>
       <label><input type="radio" value="blue" />파랑</label>
@@ -349,4 +293,165 @@
     </script>
   </body>
 </html>
+```
+
+# 0216 강의
+
+## event
+
+- click 시 알림 pop up
+
+```
+  <body>
+    <button onclick="clickEvent()">클릭</button>
+    <script>
+      function clickEvent() {
+        alert("click");
+      }
+    </script>
+  </body>
+</html>
+```
+
+- click 시 테두리 변화
+  - onblur : focus가 대상에서 벗어났을 때 이벤트 실행
+  - onfocus 통해 focus된 횟수 등의 데이터 수집 가능
+
+```
+  <body>
+    <form>
+      <input type="text" onfocus="FocusEvent()" onblur="blurEvent()" />
+    </form>
+    <script>
+      function FocusEvent() {
+        console.log("focus on");
+      }
+      function blurEvent() {
+        console.log("focus out");
+      }
+    </script>
+  </body>
+</html>
+```
+
+- 버튼 클릭시 알림창 pop up 3가지 방식
+
+```
+  <body>
+    <button>클릭</button>
+    <script>
+      const btnEl = document.querySelector("button");
+      btnEl.onclick = function () {
+        alert("click");
+      };
+
+      // btnEl.onclick = () => {
+      //   alert("click");
+      // };
+
+      // btnEl.onclick = clickEvent;
+      // function clickEvent() {
+      //   alert("click");
+      // }
+    </script>
+  </body>
+</html>
+```
+
+- <노드>.addEventListener("이벤트타입", 이벤트 함수)
+- onclick 중 on제거
+
+```
+  <body>
+    <button>클릭</button>
+    <script>
+      const btnEl = document.querySelector("button");
+      btnEl.addEventListener("click", function () {
+        alert("button click");
+      });
+    </script>
+  </body>
+</html>
+```
+
+- 화살표 함수
+
+```
+  <body>
+    <button>클릭</button>
+    <script>
+      const btnEl = document.querySelector("button");
+      const clickEvent = () => {
+        alert("button click");
+      };
+      btnEl.addEventListener("click", clickEvent);
+    </script>
+  </body>
+</html>
+```
+
+- 클릭 위치 console 창에 표시
+
+```
+  <body>
+    <button>클릭</button>
+    <script>
+      const btnEl = document.querySelector("button");
+      btnEl.addEventListener("click", function (event) {
+        // 내부적으로 이벤트 객체를 매개변수로 전달
+        console.log(event);
+        console.log(`clientX:${event.clientX}`);
+        console.log(`clientY:${event.clientY}`);
+        console.log(`pageX:${event.pageX}`);
+        console.log(`pageY:${event.pageY}`);
+        console.log(`screenX:${event.screenX}`);
+        console.log(`screenY:${event.screenY}`);
+      });
+    </script>
+  </body>
+```
+
+- input에 키 입력시 console 창에 출력
+
+```
+  <body>
+    <form>
+      <input type="text" />
+    </form>
+    <script>
+      const inputEl = document.querySelector("input");
+      inputEl.addEventListener("keydown", function (event) {
+        // 내부적으로 이벤트 객체를 매개변수로 전달
+        console.log(event);
+        console.log(`keyCode:${event.keyCode}`);
+        console.log(`ctrlKey:${event.ctrlKey}`);
+        console.log(`altKey:${event.altKey}`);
+        console.log(`shiftKey:${event.shiftKey}`);
+      });
+    </script>
+  </body>
+```
+
+- click시 text 색깔 변경
+  - this는 사용자가 해당 요소를 클릭했을 때 출력
+
+```
+  <body>
+    <p>text-1</p>
+    <p>text-2</p>
+    <p>text-3</p>
+    <script>
+      const pEl = document.querySelectorAll("p");
+      pEl.forEach((el) => {
+        el.addEventListener("click", function () {
+          console.log(this);
+          if (this.style.color === "red") {
+            this.style.color = "black";
+          } else {
+            this.style.color = "red";
+          }
+        });
+      });
+    </script>
+  </body>
 ```

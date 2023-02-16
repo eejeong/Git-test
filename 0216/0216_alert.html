@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addEventlistener</title>
+  </head>
+  <body>
+    <button>클릭</button>
+    <script>
+      const btnEl = document.querySelector("button");
+      // btnEl.addEventListener("click", function () {
+      //   <노드>.addEventListener("이벤트타입", 이벤트 함수) onclick 중 on제거
+      //   alert("button click");
+      // });
+      const clickEvent = () => {
+        alert("button click");
+      };
+      btnEl.addEventListener("click", clickEvent);
+    </script>
+  </body>
+</html>

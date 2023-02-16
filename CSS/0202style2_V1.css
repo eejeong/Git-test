@@ -1,0 +1,54 @@
+#slideShow {   
+    clear:both;   /* 플로팅 해제 */
+    width:100%;    /* 너비 */ 
+    height:300px;   /* 높이 */ 
+    overflow:hidden;   /* 영역 넘치면 감춤 */ 
+    position: relative;
+  }
+
+#slides {
+    position: absolute;
+  }
+  
+#slides > img {
+    width:100%;  /* 너비 */
+    float:left;  /* 가로로 배치 */
+  }
+
+  #body {
+    margin: 0;
+    padding: 0;
+    background-color: #d2d2d2;
+  } */
+  
+  #links{  
+    float:right;   /* 오른쪽으로 플로팅 */
+    width:600px;   /* 너비 */
+    height:100%;   /* 높이 */
+    margin-top:20px;  /* 마진 추가 */
+  }
+  
+
+  
+  .container {
+    max-width: 1150px;
+    margin: 0 auto; /* 가운데 정렬 */
+    background-color: #fff;
+    box-sizing: border-box; /* 헤더 가로폭에 대표 이미지 박스 가로 크기도 맞춤 */
+  }
+  
+  .row {
+    padding: 10px;
+    overflow: hidden;
+  }
+  
+  img {
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 100%;
+  }
+  
+  .col-3 {
+    width: 30%;
+    float: left;
+  }
