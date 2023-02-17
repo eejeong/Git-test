@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <script>
+      $(document).ready(function() {
+        $(".btn").hover(function() {
+            // $(".btn").css({"background" : "pink"})
+          $(this).css({
+            "background" : "green",
+            "color" : "white",
+            "transition" : "0.7s"
+          })
+        }, function() {
+          $(this).css({
+            "background" : "yellow",
+            "color" : "black",
+          })
+        })
+
+        $(".img1 > img").click(function () {
+          $(this).attr("src", "img/2.png")
+        })
+
+      });
+    </script>
+    <style>
+        .btn{
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn">메뉴</div>
+    <div class="btn">메뉴</div>
+    <div class="btn">메뉴</div>
+    <div class="btn">메뉴</div>
+    <div class="btn">메뉴</div>
+    <div class="img1">
+        <img src="img/1.png" alt="" srcset="" width="500">
+    </div>
+</body>
+</html>

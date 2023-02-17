@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>age calculator</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        width: 700px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+      }
+
+      section {
+        width: 500px;
+        padding: 20px 0;
+        margin: 0 0 20px 0;
+        background-color: hsl(327, 100%, 94%);
+        text-align: center;
+      }
+
+      span {
+        font-weight: bold;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>나이 계산기</h1>
+      <section>
+        <script>
+          var currentyear = 2023;
+          var birthyear;
+          var age;
+
+          birthyear = prompt("태어난 연도를 입력하세요.");
+          age = currentyear - birthyear + 1;
+          document.write(currentyear + "년 현재<br>");
+          document.write(
+            birthyear +
+              "년에 태어난 사람의 나이는 " +
+              "<span>" +
+              age +
+              "</span>" +
+              "세 입니다."
+          );
+        </script>
+      </section>
+      <b>♡ 행복하세용 ♡</b>
+    </div>
+    <img src="/images/rabbit.jpeg" />
+  </body>
+</html>

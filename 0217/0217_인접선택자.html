@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#22 > h1").css("border", "4px solid #f00"); // 22 중에서 h1만 선택
+        $("#22 > section").children()
+        .css({"background-color":"blue", "border":"4px solid #ff0"})        
+      });
+    </script>
+  </head>
+  <body>
+    <h1>인접 관계 선택자</h1>
+    <div id = 22>
+      <h1>ddd</h1>
+      <section>
+        <h1>ddd</h1>
+        <p>ppp</p>
+      </section>
+    <ul id="kb">
+      <li>리스트1</li>
+        <ul>
+          <li id="22">리스트22</li>
+          <li>리스트22-1</li>
+        </ul>
+      <li>리스트2</li>
+      <li>리스트3</li>
+    </ul>
+    <h2 id - "kb">선택자</h2>
+    <a>국민</a>
+    </div>
+  </body>
+</html>

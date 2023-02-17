@@ -455,3 +455,312 @@
     </script>
   </body>
 ```
+
+## 0217 강의
+
+# 제이쿼리
+
+- 직접선택자 : 하나의 개체만 선택하는 경우 사용
+
+```
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("*").css("border", "1px solid blue"); //선택자
+      });
+    </script>
+  </head>
+  <body>
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3>직접 선택자</h3>
+  </body>
+```
+
+```
+    <script>
+      //id는 #, class는 . 으로 선택자 지정
+      //요소 선택자는 태그 지정
+      //동시 선택 가능 $("#kb, h1") 또는 ("h1#kb") h1중에서 id값이 같은 것만 지정
+      $(function () {
+        $("#kb")
+          .css("background-color", "#ff0") //id 선택자
+          .css("border", "4px solid #f00"); //체이닝 기법 : 선택한 요소에 메서드를 연속해서 사용
+      });
+      $(function () {
+        $("a")
+          .attr("href", "https://www/naver.com")
+          .attr("target", "_blank")
+          .css("font-size", "100px");
+      });
+      //선택한 요소에 지정한 스타일 적용
+      //$("css선택자").css("스타일 속성명", "값")
+      //선택한 요소에 지정한 속성 적용
+      //$("css선택자").attr("속성명", "값")
+    </script>
+  </head>
+  <body>
+    <h1>제이쿼리</h1>
+    <h2 id="kb">선택자</h2>
+    <a>국민</a>
+    <h3>직접 선택자</h3>
+  </body>
+```
+
+- 인접 선택자 예제 : 다중으로 선택하는 경우 사용
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#22").parent().css("border", "4px solid #f00"); //체이닝 기법 : 선택한 요소에 메서드를 연속해서 사용
+      });
+    </script>
+  </head>
+  <body>
+    <h1>인접 관계 선택자</h1>
+    <ul id="kb">
+      <li>리스트1</li>
+        <ul>
+          <li id="22">리스트22</li>
+          <li>리스트22-1</li>
+        </ul>
+      <li>리스트2</li>
+      <li>리스트3</li>
+    </ul>
+  </body>
+```
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#22 > h1").css("border", "4px solid #f00"); // 22 중에서 h1만 선택
+        $("#22 > section").children()
+        .css({"background-color":"blue", "border":"4px solid #ff0"})
+      });
+    </script>
+  </head>
+  <body>
+    <h1>인접 관계 선택자</h1>
+    <div id = 22>
+      <h1>ddd</h1>
+      <section>
+        <h1>ddd</h1>
+        <p>ppp</p>
+      </section>
+    </div>
+  </body>
+```
+
+- 예제
+
+  - prev 선택자의 이전 대상 속성 변경
+  - next 선택자의 다음 대상 속성 변경
+
+  ```
+      <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        var style_1 = {
+          "background-color": "#0FF",
+          border: "4px solid #f00",
+        };
+        var style_2 = {
+          "background-color": "#ff0",
+          border: "4px dashed #f00",
+        };
+        $(".txt").prev().css(style_1);
+        $(".txt + p").css(style_2);
+        $(".txt").next().next().css(style_2);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="tt">
+      <h1>인접 관계 선택자</h1>
+      <p>내용1</p>
+      <p class="txt">내용2</p>
+      <p>내용3</p>
+      <p>내용4</p>
+    </div>
+  </body>
+  ```
+
+  - prevAll 선택자의 이전의 모든 대상 속성 변경
+  - nextAll 선택자의 다음의 모든 대상 속성 변경
+
+  ```
+      <script>
+      $(function () {
+        var style_1 = {
+          "background-color": "#0FF",
+          border: "4px solid #f00",
+        };
+        var style_2 = {
+          "background-color": "#ff0",
+          border: "4px dashed #f00",
+        };
+        $(".txt").prevAll().css(style_1);
+        $(".txt").nextAll().css(style_2);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>hi</h1>
+    <div id="tt">
+      <h1>인접 관계 선택자</h1>
+      <p>내용1</p>
+      <p class="txt">내용2</p>
+      <p>내용3</p>
+      <p>내용4</p>
+    </div>
+  </body>
+  ```
+
+  - prevUntil
+  - nextUntil
+
+```
+    <script>
+      $(function () {
+        var style_1 = {
+          "background-color": "#0FF",
+          border: "4px solid #f00",
+        };
+        var style_2 = {
+          "background-color": "#ff0",
+          border: "4px dashed #f00",
+        };
+        $(".txt").prevUntil(".t").css(style_1);
+        $(".txt").nextUntil(".t2").css(style_2);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>hi</h1>
+    <div id="tt">
+      <h1 class="t">인접 관계 선택자</h1>
+      <p>내용1</p>
+      <p>내용1</p>
+      <p class="txt">내용2</p>
+      <p>내용3</p>
+      <p>내용4</p>
+      <p class="t2">내용1</p>
+    </div>
+  </body>
+```
+
+- 탐색선택자
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#menu li:first").css({ "background-color": "#ff0" });
+        $("#menu li:last").css({ "background-color": "#0ff" });
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="menu">
+      <h2>dd</h2>
+      <h2>dd</h2>
+      <h2>dd</h2>
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+      <li>내용4</li>
+    </ul>
+  </body>
+```
+
+- 탐색선택자
+  - even : 홀수 인덱스
+  - odd : 짝수 인덱스
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#menu li:even").css({ "background-color": "#ff0" }); //홀수 인덱스 (짝수 제외)
+        $("#menu li:odd").css({ "background-color": "#0ff" }); //짝수 인덱스 (홀수 제외)
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="menu">
+      <h2>dd</h2>
+      <h2>dd</h2>
+      <h2>dd</h2>
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+      <li>내용4</li>
+    </ul>
+  </body>
+```
+
+- equal, less than, greater than
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#menu li")
+          .eq(2) // 인덱스 2
+          .css({ "background-color": "#ff0" });
+        $("#menu li:lt(2)") // 인덱스 2보다 큰 인덱스 제외
+          .css({ "background-color": "#0f0" });
+        $("#menu li:gt(2)") // 인덱스 2보다 작은 인덱스 제외
+          .css({ "background-color": "#f0f" });
+      });
+    </script>
+  </head>
+  <body>
+    <ul id="menu">
+      <h2>dd</h2>
+      <h2>dd</h2>
+      <h2>dd</h2>
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+      <li>내용4</li>
+      <li>내용5</li>
+    </ul>
+  </body>
+```
+
+- nth-child : 0부터 시작하지 않고, 1이 첫번째 대상을 의미
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $("#menu1 li:nth-child(1)").css({ "background-color": "#ff0" });
+        $("#menu1 li:nth-child(3n)").css({ "background-color": "#0f0" });
+        $("#menu2 li:nth-last-child(1)").css({ "background-color": "#f0f" });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>탐색 선택자</h1>
+    <ul id="menu1">
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+      <li>내용4</li>
+    </ul>
+    <ul id="menu2">
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+      <li>내용4</li>
+    </ul>
+  </body>
+```

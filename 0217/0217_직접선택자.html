@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+      //id는 #, class는 . 으로 선택자 지정
+      //요소 선택자는 태그 지정
+      //동시 선택 가능 $("#kb, h1") 또는 ("h1#kb") h1중에서 id값이 같은 것만 지정
+      $(function () {
+        $("#kb")
+          .css("background-color", "#ff0") //id 선택자
+          .css("border", "4px solid #f00"); //체이닝 기법 : 선택한 요소에 메서드를 연속해서 사용
+      });
+      $(function () {
+        $("a")
+          .attr("href", "https://www/naver.com")
+          .attr("target", "_blank")
+          .css("font-size", "100px");
+      });
+      //선택한 요소에 지정한 스타일 적용
+      //$("css선택자").css("스타일 속성명", "값")
+      //선택한 요소에 지정한 속성 적용
+      //$("css선택자").attr("속성명", "값")
+    </script>
+  </head>
+  <body>
+    <h1>제이쿼리</h1>
+    <h2 id="kb">선택자</h2>
+    <a>국민</a>
+    <h3>직접 선택자</h3>
+  </body>
+</html>

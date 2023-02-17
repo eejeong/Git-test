@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>welcome</title>
+    <link rel="stylesheet" href="./css/0213_login.css" />
+  </head>
+  <body>
+    <section class="container">
+      <article class="main">
+        <div class="title">
+          <img src="./images/img_logo.png" width="110px" />
+        </div>
+        <div class="section">
+          <input
+            type="ID"
+            id="input.id"
+            placeholder="ID"
+            onfocus="FocusEvent()"
+            onblur="blurEvent()"
+          />
+          <input
+            type="password"
+            id="input.pw"
+            placeholder="Password"
+            onfocus="FocusEvent()"
+            onblur="blurEvent()"
+          />
+        </div>
+        <div class="tf">
+          <div class="checkbox">
+            <input type="checkbox" id="check" /> Remember Me
+          </div>
+          <div class="forgot_pw">
+            <a href="findpw.html" ;>Forgot Password?</a>
+          </div>
+        </div>
+        <div class="btn">
+          <input
+            class="inputDisabled"
+            type="submit"
+            id="button"
+            value="sign up"
+            disabled
+          />
+        </div>
+        <div class="signup">
+          <a>Don't have an account?</a>
+          <span class="signupbtn">
+            <a ref="#"><b>Sign up</b></a></span
+          >
+        </div>
+      </article>
+    </section>
+    <script type="text/javascript" src="./0213_login.js"></script>
+  </body>
+</html>

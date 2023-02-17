@@ -1,0 +1,44 @@
+table, th, td {
+    border : 1px solid black; 
+    border-collapse : collapse;
+}
+
+caption {
+    color :darkgreen;
+}
+
+table {
+    width: 1000px;
+    height: 630px;
+    text-align: center;
+}
+
+thead > tr > th {
+    width: 250px;
+    height: 30px;
+    color: white;
+}
+
+tbody > tr > th {
+    width: 250px;
+    height: 200px;
+}
+
+tbody > tr > td {
+    font-size: 20px;
+}
+
+thead {
+    background-color: #ffc107;
+}
+tbody tr:nth-child(2n) {
+    background-color: #fff7ae;
+    color: rgb(24, 92, 53);
+    }
+tbody tr:nth-child(2n+1) {
+    background-color: #ffdead;
+    }
+
+div > ul > li {
+    font-size: 20px;
+}
