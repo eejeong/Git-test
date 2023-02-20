@@ -764,3 +764,325 @@
     </ul>
   </body>
 ```
+
+## 0220 강의
+
+# jquery event
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        //단독 이벤트 등록
+        $(".btn1").click(function () {
+          $(".btn1").parent().next().css({ color: "#f00" });
+        });
+        $(".btn2").on({
+          //.on 메소드를 이용한 그룹 이벤트 등록
+          "mouseover focus": function () {
+            $(".btn2").parent().next().css({ color: "#0f0" });
+          },
+          "mouseout blur": function () {
+            $(".btn2").parent().next().css({ color: "#00f" });
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      <button class="btn1">버튼1</button>
+    </p>
+    <p>내용</p>
+    <p>
+      <button class="btn2">버튼2</button>
+    </p>
+    <p>내용</p>
+  </body>
+```
+
+- 강제 event : 최초 접속시 이벤트 발생 상태 출력됨
+
+```
+        $(".btn1").click();
+        $(".btn2").trigger("mouseover");
+```
+
+- event 제거
+
+```
+        $(".btn1").off("click");
+        $(".btn2").off("mouseover focus");
+```
+
+- ready 
+  - 호출시점 : DOM Tree 생성 완료 후
+  - window.load() 보다 더 빠르게 실행되고 중복 사용하여 실행해도 선언한 순서대로 실행
+- load
+  -  호출시점 : 모든 페이지 구성요소 페인팅 완료 후
+
+```
+      $(function () {
+        $(document).ready(function () {
+          var h1 = $(".img1").height();
+          console.log("ready :", h1); //ready : 값
+        });
+        $(window).load(function () {
+          var h2 = $(".img1").height();
+          console.log("load :", h2); //load : 값
+        });
+      });
+```
+
+- preventDefault : 기존 이벤트 막기
+- dblclick : 더블클릭
+
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function () {
+        $(".btn1").on("click", function (e) {
+          e.preventDefault(); //기존 이벤트 막기
+          $(".txt1").css({ "background-color": "#ff0" });
+        });
+        $(".btn2").on("click", function (e) {
+          // e.preventDefault();
+          $(".txt2").css({ "background-color": "#0ff" });
+        });
+        $(".btn3").on("dblclick", function (e) {
+          // e.preventDefault();
+          $(".txt3").css({ "background-color": "#0f0" });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p><a href="https://www.naver.com" class="btn1">버튼1</a></p>
+    <p class="txt1">내용1</p>
+    <p><a href="https://www.naver.com" class="btn2">버튼1</a></p>
+    <p class="txt2">내용2</p>
+    <p><button class="btn3">버튼1</button></p>
+    <p class="txt3">내용3</p>
+  </body>
+```
+
+```
+      $(function () {
+        $(".btn1").on({
+          mouseover: function () {
+            $(".txt1").css({ "background-color": "yellow" });
+          },
+          mouseout: function () {
+            $(".txt1").css({ background: "none" });
+          },
+        });
+        $(".btn2").hover(
+          function () {
+            $(".txt2").css({ "background-color": "aqua" });
+          },
+          function () {
+            $(".txt2").css({ "background-color": "white" });
+          }
+        );
+      });
+```
+
+- cursor 위치
+
+```
+    <script>
+      $(function () {
+        $(document).on("mouseover", function (e) {
+          $(".posX").text(e.pageX);
+          $(".posY").text(e.pageY);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>mouseover</h1>
+    <p>X : <span class="posX">0</span>px</p>
+    <p>Y : <span class="posY">0</span>px</p>
+  </body>
+```
+
+- scroll 위치
+
+```<script>
+      $(window).on("scroll", function () {
+        var sc_top = $(this).scrollTop();
+        var sc_left = $(this).scrollLeft();
+
+        $(".top").text(sc_top);
+        $(".left").text(sc_left);
+      });
+    </script>
+    <style>
+      body {
+        height: 10000px;
+        width: 5000px;
+      }
+      #wrap {
+        position: fixed;
+        left: 10px;
+        top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <p>scrollTop: <span class="top">0</span>px</p>
+      <p>scrollLeft: <span class="left">0</span>px</p>
+    </div>
+  </body>
+```
+
+- focus / blur : 해당 칸 색깔 변경
+- focus in/out : 해당 칸의 배경 색 변경
+
+```
+    <script>
+      $(function () {
+        $("#user_id_1, #user_pw_1").on("focus", function () {
+          $(this).css({ "background-color": "pink" });
+        });
+        $("#user_id_1, #user_pw_1").on("blur", function () {
+          $(this).css({ "background-color": "blue" });
+        });
+        $("#frm_2").on("focusin", function () {
+          $(this).css({ "background-color": "pink" });
+        });
+        $("#frm_2").on("focusout", function () {
+          $(this).css({ "background-color": "blue" });
+        });
+      });
+    </script>
+```
+```
+    <script>
+      $(function () {
+        $("#btn1")
+          .data({ "text": "javascript"})
+          .on({ "mouseover":over, "mouseout":out });
+        $("#btn2")
+          .data({ "text": "welcome!" })
+          .on({ "mouseover focus": over, "mouseout blur": out });
+        function over() {
+          $(".txt").text($(this).data("text"));
+        }
+        function out() {
+          $(".txt").text("");
+        }
+      });
+    </script>
+```
+```
+    <script>
+      $(function(){
+        $(document).on("keydown", KeyEventFnc);
+        function KeyEventFnc(e){
+          var direct = "";
+
+          switch(e.keyCode){
+            //값1 : 행위1
+            case 37: direct = "LEFT"
+            break;
+            case 38: direct = "TOP"
+            break;
+            case 39: direct = "RIGHT"
+            break;
+            case 40: direct = "BOTTOM"
+            break;
+          }
+          //만약 direct에 값이 들어가있다면 user_id 값을 value 값으로 변경
+          if(direct) $("#user_id").val(direct);
+        }
+      })
+    </script>
+  </head>
+  <body>
+    <p><input type = "text" name = "user_id" id = "user_id"></p>
+  </body>
+```
+```
+    <script>
+      $(function(){
+        $(".menuWrap_1 a").on("click", function(e){
+        e.preventDefault();
+
+        $(".menuWrap_1 a")
+        .css({"background-color":"#fff"});
+
+        $(this)
+        .css({"background-color":"#ff0"});
+      });
+
+        $(".menuWrap_2 a").on("click", function(e){
+        e.preventDefault();
+
+        $(".menuWrap_2 a")
+        .css({"background-color":"#fff"});
+
+        var idx = $(".menuWrap_2 a").index(this);
+        $(".menuWrap_2 a").eq(idx)
+        .css({"background-color":"#0ff"});
+
+        $(".idxNum").text(idx); //텍스트 값 표시
+      });
+    })
+    </script>
+```
+- delegate : 선택한 요소의 하위 요소에 이벤트 등록
+  - 등록 이후에는 동적으로 생성된 요소와 복제된 요소에도 등록
+- one : 이벤트가 1회만 발생
+```
+    <script>
+      $(function(){
+        $(".btn_wrap").delegate(".btn_1.on",
+        "mouseover focus", function(){
+          alert("HELLO!");
+        });
+        $(".btn_1").addClass("on");
+        $(document).one("mouseover focus",
+        ".btn_2.on", function(){
+          alert("WELCOME!");
+        });
+        $(".btn_2").addClass("on");
+      })
+    </script>
+```
+- 이벤트 해지
+```
+    <script src="./jquery.js"></script>
+    <script>
+      $(function(){
+        $(".btn_1").on("mouseover", function(){
+          alert("HELLOOO!");
+        })
+
+        $(document).on("mouseover", ".btn_2", function(){
+          alert("WELCOME!");  // 버튼 생성한 곳에 등록
+        })
+
+        var btn_2 = $("<p><button class=\"btn_2\">버튼2</button></p>");
+        $("#wrap").append(btn_2); // 버튼 생성
+
+        $(".del_1").on("click", function(){
+          $(".btn_1").off("mouseover");
+        });
+
+        $(".del_2").on("click", function(){
+          $(document).off("mouseover", ".btn_2");
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <div id = "wrap">
+      <p><button class = "btn_1">버튼1</button></p>
+    </div>
+    <p>
+      <button class = "del_1">버튼1 이벤트 해지</button>
+      <button class = "del_2">버튼2 이벤트 해지</button>     
+    </p>
+```

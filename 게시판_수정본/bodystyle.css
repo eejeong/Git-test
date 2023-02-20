@@ -1,0 +1,58 @@
+.card-body .top{
+    border-top : 3px solid #000;
+    border-bottom : 1px solid lightgray;
+    background-color : #0095f6;
+    font-weight : 600;
+}
+
+.card-body div{
+    border-bottom : 1px solid lightgray;
+}
+
+.card-body  div  div{
+    display : inline-block;
+    border-bottom : none;
+    text-align : center;
+    border-right : 1px solid lightgray;
+}
+
+.card-body .count{
+    border-right : none;
+}
+
+.card-body .top > .title{
+    text-align : center;
+}
+
+.card-body div .title{
+    width : 55%;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    text-align : left;
+}
+
+.card-body div .num ,.name ,.date ,.count{
+    width : 10%;
+    padding-top : 10px;
+    padding-bottom : 10px;
+}
+
+.number{
+    margin : 10px;
+    padding-top : 20px;
+    text-align : center;
+}
+
+.number li{
+    display : inline-block;
+}
+
+.number li a{
+    padding : 5px 10px 5px 10px;
+    border : 1px solid #999;
+}
+
+.number li a.active{
+    background-color : #e6e6e6;
+}
+

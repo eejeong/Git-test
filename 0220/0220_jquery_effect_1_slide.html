@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 효과와 애니메이션 </title>  
+<script src="./jquery.js"></script>
+<script>
+	//효과소요시간 : 소요시간(1000=1초), slow, normal, fast
+	//가속도 : swing(중간만 빠르게), linear(일정 속도)
+$(function( ) { //요소 선택.효과메서드(효과 소요시간, 가속도, 콜백함수-끝난 후 실행할 함수(생략가능))
+	$(".btn2").hide();
+
+	$(".btn1").on("click", function( ) {
+		$(".box").slideUp(1000, "linear", 
+		function( ) {
+			$(".btn1").hide( );
+			$(".btn2").show( );
+		});
+	});
+//클릭하면 box가 숨겨지고, 콜백 함수 실행되어서 fade in버튼 생성
+	$(".btn2").on("click", function( ) {
+		$(".box").fadeIn(1000, "swing", 
+		function( ) {
+			$(".btn2").hide( );
+			$(".btn1").show( );
+		});
+	});
+
+	$(".btn3").on("click", function( ) {
+		$(".box").slideToggle(1000, "linear"); // 1000=1초
+	});
+
+	$(".btn4").on("click", function( ) {
+		$(".box").fadeTo("fast", 0.3);
+	});
+
+	$(".btn5").on("click", function( ) {
+		$(".box").fadeTo("fast", 1);
+	});
+
+});
+</script>
+<style>
+	.content{
+		width:400px;
+		background-color: #eee;
+	}
+</style>
+</head>
+<body>
+	<p>
+		<button class="btn1">slideUp</button>
+		<button class="btn2">fadeIn</button>
+	</p>
+	<p>
+		<button class="btn3">toggleSide</button>
+	</p> 
+	<p>
+		<button class="btn4">fadeTo(0.3)</button>
+		<button class="btn5">fadeTo(1)</button>
+	</p>   
+	<div class="box">
+		<div class="content">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat consectetur nibh, ut luctus urna placerat non. Phasellus consectetur nunc nec mi feugiat egestas. Pellentesque et consectetur mauris, sed rutrum est. Etiam odio nunc, ornare quis urna sed, fermentum fermentum augue. Nam imperdiet vestibulum ipsum quis feugiat. Nunc non pellentesque diam, nec tempor nibh. Ut consequat sem sit amet ullamcorper sodales.
+		</div>
+	</div>
+</body>
+</html>
