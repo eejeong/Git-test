@@ -8,11 +8,58 @@
     <link rel = "stylesheet" href = "style.css">
     <link rel = "stylesheet" href = "bodystyle.css">
     <script src="./jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script>
+        $(function(){
+            $(document).ready(function(){
+                alert("WELCOME!");
+            })
+            $(".title").not(":first").on("mouseover", function(){
+                $(this).css({"color":"#0095f6"});
+            });
+            $(".title").on("mouseout", function(){
+                $(this).css({"color":"#000"});
+            });
+
+            $(".active").on("mouseover", function(){
+                $(this).css({"background-color":"#0095f6"});
+            });
+            $(".active").on("mouseout", function(){
+                $(this).css({"background-color":"#fff"});
+            });
+
+
+            $(".btn").on("mouseover", function(){
+                $(this).css({"color":"#f00"});
+            });
+            $(".btn").on("mouseout", function(){
+                $(this).css({"color":"#000"});
+            });
+            $(".btn").on("click", function(){
+            confirm("게시글을 작성하시겠습니까?");
+            });
+            $(".card-header").click(function(){
+            $("#demo").css({"display":"block"});
+            $("#demo").fadeIn("slow", 0.15);
+            TweenMax.to('#demo', 10, {
+            bezier: {curviness: 1,
+            values: [
+            {top:600, left:50},
+            {top:800, left:400},
+            {top:600, left:800},
+            {top:800, left:1100},
+            {top:600, left:1820},
+            ] , autoRotate: true   
+            }, ease: Power1.easeInOut,repeat: -1, yoyo: false
+            }); 
+        });    
+        });
+    </script>
 </head>
 <body>
         <div class = "card">
             <div class = "card-header">
-                <h1>게시판</h1>
+                <span class="yellow underline">DIGI CAMPUS <br>Q&A 게시판</span>
             </div>
             <div class = "card-body">
                 <div class = "top">
@@ -51,12 +98,12 @@
                     <div class = "count">2</div>
                 </div>
                 <ul class = "number">
-                    <li><a href = "#">&lt;</a></li>
+                    <li><a href = "#" class = "active">&lt;</a></li>
                     <li><a href = "#" class = "active">1</a></li>
-                    <li><a href = "#">2</a></li>
-                    <li><a href = "#">3</a></li>
-                    <li><a href = "#">4</a></li>
-                    <li><a href = "#">&gt;</a></li>
+                    <li><a href = "#" class = "active">2</a></li>
+                    <li><a href = "#" class = "active">3</a></li>
+                    <li><a href = "#" class = "active">4</a></li>
+                    <li><a href = "#" class = "active">&gt;</a></li>
                 </ul>
             </div>
 
@@ -69,19 +116,6 @@
             <input type = "button" value = "3. 버튼">
             <input type = "submit" name = "" id = "" value = "4. 버튼"> -->
         </div>
-    <script>
-        $(function(){
-            $(document).ready(function(){
-                alert("WELCOME!");
-            })
-            $(".btn").on("mouseover", function(){
-                $(this).css({"color":"#f00"});
-            });
-            $(".btn").on("mouseout", function(){
-                $(this).css({"color":"#000"});
-            });
-        });
-
-    </script>
+        <div id = "demo"><img class = "img" src="./rabbit.png"></img></div>
 </body>
 </html>

@@ -1,19 +1,38 @@
+
+  .underline {
+    line-height: 1.2;
+    font-size: 3em;
+    font-weight: 700;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.8s;
+    color: #000;
+    cursor: pointer;
+  }
+
+  .underline.yellow {
+    background-image: linear-gradient(transparent 60%, #F8CD07 40%);
+  }
+  .underline:hover {
+    background-size: 100% 100%;
+  }
+
 .card-body .top{
-    border-top : 3px solid #000;
-    border-bottom : 1px solid lightgray;
+    border-top : 1px solid rgb(185, 226, 253);
+    border-bottom : 1px solid rgb(185, 226, 253);
     background-color : #0095f6;
     font-weight : 600;
 }
 
 .card-body div{
-    border-bottom : 1px solid lightgray;
+    border-bottom : 1px solid rgb(185, 226, 253);
 }
 
 .card-body  div  div{
     display : inline-block;
     border-bottom : none;
     text-align : center;
-    border-right : 1px solid lightgray;
+    border-right : 1px solid rgb(185, 226, 253);
 }
 
 .card-body .count{
@@ -49,10 +68,15 @@
 
 .number li a{
     padding : 5px 10px 5px 10px;
-    border : 1px solid #999;
+    border : 1px solid rgb(185, 226, 253);
 }
 
-.number li a.active{
-    background-color : #e6e6e6;
+#demo {
+    position: absolute;
+    display: none;
 }
 
+.img{
+    width: 100px;
+
+}

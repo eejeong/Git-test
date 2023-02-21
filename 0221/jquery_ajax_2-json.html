@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+	$.ajax({
+										//mockaroo.com
+		url:"js/MOCK_DATA.json",		//전송 페이지 - 데이터 바인딩(묶다. 서버 데이터베이스에 요청하고 데이터를 받아와서 태그에 결합)
+		dataType:"json",				//요청한 데이터 형식(html, xml, json)
+										//json은 자바스크립트 객체 표기법(javascript object notation) 속성+값 으로 이루어짐.
+		success:function(data) {		//전송에 성공하면 실행될 코드
+			if(data.length > 0) {		//1개 이상인 경우 실행
+				var tb = $("<table />");
+				for(var i in data) {
+					var $id = data[i].id;
+					var $first_name = data[i].first_name;
+					var $last_name = data[i].last_name;
+					var $email = data[i].email;
+					var $gender = data[i].gender;
+					
+					//tr 테이블 행
+					var row = 
+						$("<tr />").append(
+						//td 테이블 데이터 또는 데이터 열
+						$("<td />").text($id),
+						$("<td />").text($first_name),
+						$("<td />").text($last_name),
+						$("<td />").text($email),
+						$("<td />").text($gender)
+					);
+
+					tb.append(row);
+				}
+				$(".wrap").append(tb);
+			}
+		}
+	});
+});
+</script>
+</head>
+<body>
+  <div class="wrap"></div>
+</body>
+</html>

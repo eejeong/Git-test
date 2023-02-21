@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="./js/jquery.js"></script>
+<script>
+   //ajax(에이젝스) 어싱크로노스(비동기식, 규칙이 없다) 자바스크립트 and xml
+$(function() { //비동기 방식은 현재 페이지가 아닌 외부에서 제공하는 XML 또는 JSON 파일 데이터 불러옴
+	$("#newsWrap_1")
+	.load("jquery_ajax_news.html #news_1"); 
+	//load는 지정한 URL 주소에 데이터 전송하고 요청하여 가져옴
+	$("#newsWrap_2")
+	.load("jquery_ajax_news.html #news_2");
+});
+</script>
+</head>
+<body>
+   <h1>LOAD 1</h1>
+   <div id="newsWrap_1"></div>
+   <h1>LOAD 2</h1>   
+   <div id="newsWrap_2"></div>
+</body>
+</html>

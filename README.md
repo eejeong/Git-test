@@ -1086,3 +1086,109 @@
       <button class = "del_2">버튼2 이벤트 해지</button>     
     </p>
 ```
+## 0221 강의
+
+# animate
+
+- 요소 선택, 메소드, 스타일, 소요시간, 투명도, 콜백함수
+- 소요시간 : 1000=1초, linear 일정한 속도
+- 대입연산자 : +=50px은 50px씩 계속 이동, 50px은 여러번 클릭해도 50px만 이동
+  
+```
+  <title>효과와 애니메이션</title>
+  <script src="./js/jquery.js"></script>
+  <script>
+    $(function(){
+      $(".btn1").on("click", function(){
+        $(".txt1").animate({
+          marginLeft:"500px",
+          fontSize:"50px"
+        },
+        2000, "linear", function (){
+          alert("모션 완료!");
+        });
+      });
+      $(".btn2").on("click", function(){
+        $(".txt2").animate({
+          marginLeft:"+=50px",
+          },1000);
+      });
+    })
+  </script>
+  <style>
+    .txt1{background-color: #fbc0e1;}
+    .txt2{background-color: lemonchiffon;}
+  </style>
+</head>
+<body>
+  <p><button class = "btn1">버튼1</button></p>
+  <span class = "txt1">"500px" 이동</span>
+  <p><button class = "btn2">버튼2</button></p>
+  <span class = "txt2">"50px" 이동</span>
+</body>
+```
+# queue
+
+- queue : 특정 요소에서 애니메이션이 실행되는 순서로 저장되어 있는 공간. 큐에 저장된 목록에서 순번대로 애니메이션을 하나씩 꺼내어 실행하고, 실행된 애니메이션은 제거
+  - .animate() 중간에 추가하게 되면 .queue() 까지만 실행되고 그 뒤에 대기중인 대기열은 자동으로 취소. 일종의 break 역할
+- dequeue : 다음 애니메이션까지 작동되도록 함
+- clearQueue : 현재 실행 중인 애니메이션은 제외하고 대기중인 애니메이션만 모두 제거
+
+<예제1>
+```
+  <script>
+    $(function(){
+      $(".txt1")
+      .animate({marginLeft:"200px"},1000)
+      .animate({marginTop:"200px"},1000)
+      .queue(function(){
+        $(this).css({background:"red"});
+        $(this).dequeue();
+      })
+      .animate({marginLeft:0},1000)
+      .animate({marginTop:0},1000)
+    })
+  </script>
+  <style>
+    *{margin:0;}
+    .txt1{width: 50px; text-align: center;
+    background-color: antiquewhite;}
+  </style>
+  </head>
+  <body>
+    <p class = "txt1">내용1</p>
+  </body>
+```
+
+<예제2>
+```
+  <script>
+    $(function(){
+      $(".txt1")
+      .animate({marginLeft:"100px"},1000)
+      .animate({marginLeft:"400px"},1000)
+      .animate({marginLeft:"700px"},1000);
+      $(".txt2")
+      .animate({marginLeft:"100px"},1000)
+      .animate({marginLeft:"400px"},1000)
+      .animate({marginLeft:"700px"},1000);
+      $(".txt2").clearQueue(); 
+    })
+  </script>
+  <style>
+    .txt1, .txt2{width: 50px; text-align: center;
+    background-color: antiquewhite;}
+    .txt2 {background-color: cadetblue;}
+  </style>
+  </head>
+  <body>
+    <p class = "txt1">내용1</p>
+    <p class = "txt2">내용2</p>
+  </body>
+```
+# 비동기식
+- 동기식 : 값을 넣어서 응답이 오는 경우 실행
+- 비동기식 : 
+
+- load()메서드 : 사용자가 지정한 URL 주소에 데이터 전송하고 외부 콘텐츠를 요청하여 가져올 때 사용
+- ajax()메서드 : 

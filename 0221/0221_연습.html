@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>큐</title>
+  <script src="./js/jquery.js"></script>
+  <script>
+    $(function(){
+      $("img")
+      .animate({marginLeft:"100px"},1000)
+      .animate({marginLeft:"400px"},1000)
+      .animate({marginLeft:"700px"},1000);
+      $(".txt2")
+      .animate({marginLeft:"100px"},1000)
+      .animate({marginLeft:"400px"},1000)
+      .animate({marginLeft:"700px"},1000);
+      $(".txt2").clearQueue(); 
+    })
+  </script>
+  <style>
+    .img{width: 50px;}
+  </style>
+  </head>
+  <body>
+    <img class = "img" src="./bread_1.png"></img>
+    <p class = "txt2">내용2</p>
+  </body>
+  </html>
